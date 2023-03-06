@@ -5,7 +5,6 @@
     margin: 0;
     max-width: 100%;
     overflow-x: hidden;
-    position: relative;
     display: block;
     color: white;
 }
@@ -13,10 +12,13 @@ body {
     background-image: linear-gradient( hsl(214, 47%, 23%), hsl(237, 49%, 15%));
     width: 100vw;
     height: 100vh;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+}
+header {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'Barlow Semi Condensed', sans-serif;
+    flex-direction: column;
 }
 .score-container {
     background-color: white;
@@ -41,10 +43,78 @@ body {
 }
 .header {
     border: solid 3px hsl(217, 16%, 45%);
-    width: 40vw;
+    width: 50vw;
     border-radius: 8px;
     padding: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin: 20px;
+}
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.game-body {
+    position: relative;
+    width: 40%;
+    height: 30%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+.bg-triangle {
+    margin-top: 50px;
+    width: 65%;
+    height: 65%;
+}
+.circle-paper, .circle-rock, .circle-scissors {
+    width: 75%;
+    height: 75%;
+    border-radius: 50%;
+    background-color: white;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.icon-paper, .icon-scissors, .icon-rock {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.big-paper-circle, .big-circle-scissors, .big-circle-rock{
+    position: absolute;
+    border-radius: 50%;
+    width: 11rem;
+    height: 11rem;
+    transition: all 0.5s ease-in-out;
+    overflow: hidden;
+}
+.big-paper-circle {
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%));
+}
+.big-circle-scissors {
+    top: 0;
+    right: 0;
+    background-image: linear-gradient(hsl(39, 89%, 49%), hsl(40, 84%, 53%));
+}
+.big-circle-rock {
+    bottom: 0;
+    left: 31%;
+    background-image: linear-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+}
+.rules {
+    text-transform: uppercase;
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    border: solid 2px hsl(217, 16%, 45%);
+    padding: 10px 40px;
+    border-radius: 10px;
+    cursor: pointer;
 }
