@@ -18,10 +18,22 @@
         <div class="game-body">
             <img src="/images/bg-triangle.svg" alt="bg-triangle" class="bg-triangle">
             <div class="game">
-                <div class="big-paper-circle"><div class="circle-paper"><img src="/images/icon-paper.svg" class="icon-paper" alt=""></div></div>
-                <div class="big-circle-scissors"><div class="circle-scissors"><img src="/images/icon-scissors.svg" class="icon-scissors" alt=""></div></div>
-                <div class="big-circle-rock"><div class="circle-rock"><img src="/images/icon-rock.svg" class="icon-rock" alt=""></div></div>
-            </div>
+                <div class="big-paper-circle" id="paper"><div class="circle-paper"><img src="/images/icon-paper.svg" class="icon-paper" alt=""></div></div>
+                <div class="big-circle-scissors" id="scissors"><div class="circle-scissors"><img src="/images/icon-scissors.svg" class="icon-scissors" alt=""></div></div>
+                <div class="big-circle-rock" id="rock"><div class="circle-rock"><img src="/images/icon-rock.svg" class="icon-rock" alt=""></div></div>
+            </div>         
+        </div>   
+        <div class="selection">
+           <div class="mychoice"><h4>you picked</h4>
+            <div class="choosepaper"><div id="mine1"><img src="/images/icon-paper.svg" class="icon-paper" alt=""></div></div>
+            <div class="chooserock"><div id="mine2"><img src="/images/icon-rock.svg" class="icon-rock" alt=""></div></div>
+            <div class="choosescissors"><div id="mine3"><img src="/images/icon-scissors.svg" class="icon-scissors" alt=""></div></div>
+        </div>    
+            <div class="computerchoice" ><h4>The house picked</h4><div id="comp" class="bckgrd"></div>
+            <div class="comppaper"><div id="comp1"><img src="/images/icon-paper.svg" class="icon-paper" alt=""></div></div>
+            <div class="comprock"><div id="comp2"><img src="/images/icon-rock.svg" class="icon-rock" alt=""></div></div> 
+            <div class="compscissors"><div id="comp3"><img src="/images/icon-scissors.svg" class="icon-scissors" alt=""></div></div>
+        </div>
         </div>
         <span class="rules" id="rules-btn">rules</span>
     </main>

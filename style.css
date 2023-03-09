@@ -4,7 +4,6 @@
     padding: 0;
     margin: 0;
     max-width: 100%;
-    overflow-x: hidden;
     display: block;
     color: white;
 }
@@ -55,6 +54,7 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 .game-body {
     position: relative;
@@ -62,8 +62,8 @@ main {
     height: 30%;
     display: inline-flex;
     justify-content: center;
-    align-items: center;
-}
+    align-items: center;   
+} 
 .bg-triangle {
     margin-top: 50px;
     width: 65%;
@@ -85,13 +85,18 @@ main {
     top: 50%;
     transform: translate(-50%, -50%);
 }
-.big-paper-circle, .big-circle-scissors, .big-circle-rock{
+.big-paper-circle, .big-circle-scissors, .big-circle-rock {
     position: absolute;
     border-radius: 50%;
     width: 11rem;
     height: 11rem;
     transition: all 0.5s ease-in-out;
     overflow: hidden;
+    cursor: pointer;
+}
+.big-paper-circle:hover, .big-circle-scissors:hover, .big-circle-rock:hover {
+    width: 11.5rem;
+    height: 11.5rem;
 }
 .big-paper-circle {
     top: 0;
@@ -164,3 +169,59 @@ main {
 aside {
     display: none;
 }
+.computerchoice, .mychoice {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.computerchoice h4, .mychoice h4 {
+    text-transform: uppercase;
+    margin: 20px 0;
+}
+ .selection {
+   display: none;
+}  
+.choosepaper, .comppaper, .chooserock, .comprock, .choosescissors, .compscissors {
+    position: relative;
+    border-radius: 50%;
+    width: 11rem;
+    height: 11rem;
+    transition: all 0.5s ease-in-out;
+    overflow: hidden;
+    cursor: pointer;
+    background-image: linear-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%))
+}
+.chooserock, .comprock {
+    background-image: linear-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+}
+.choosescissors, .compscissors{
+    background-image: linear-gradient(hsl(39, 89%, 49%), hsl(40, 84%, 53%));
+}
+.comppaper, .comprock, .compscissors {
+    display: none;
+    animation: test 2s forwards ease-in; 
+}
+.bckgrd {
+    width: 8.5rem;
+    height: 8.5rem;
+    border-radius: 50%;
+    background-color: hsl(237, 49%, 15%);
+}
+/* @keyframes test {
+    0% {
+        transform: translateX(0px);
+        width: 11rem;
+        height: 11rem;
+    }
+
+    50% {
+        transform: translateX(10px);
+        width: 11.5rem;
+        height: 11.5rem;
+    }
+    100% {
+        transform: translateX(20px);
+        width: 12rem;
+        height: 12rem;
+    }
+}  */
