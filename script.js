@@ -21,14 +21,20 @@ let rock = document.getElementById("rock");
      document.getElementById("mine1").className = "circle-paper";
      document.querySelector(".selection").style.display = 'flex'
      setTimeout(choice, 1000);
+     let paperr = "paper"
+     localStorage.setItem("userchoice", paperr)
+     setTimeout(game, 1500)
  }
 rock.onclick = function() {
     document.querySelector(".game-body").style.display = 'none';
     document.querySelector(".choosepaper").style.display = 'none';
     document.querySelector(".choosescissors").style.display = 'none'
     document.getElementById("mine2").className = "circle-rock";
-    document.querySelector(".selection").style.display = 'flex'
+    document.querySelector(".selection").style.display = 'flex';
     setTimeout(choice, 1000);
+    let rockk = "rock";
+    localStorage.setItem("userchoice", rockk)
+    setTimeout(game, 1500)
 }
 scissors.onclick = function() {
     document.querySelector(".game-body").style.display = 'none';
@@ -37,15 +43,15 @@ scissors.onclick = function() {
     document.getElementById("mine3").className = "circle-rock";
     document.querySelector(".selection").style.display = 'flex'
     setTimeout(choice, 1000);
+    let sciss = "scissors";
+    localStorage.setItem("userchoice", sciss)
+    setTimeout(game, 1500)
 }
 
-
-
-
-
 // function for computer choice
+var compchoice =  Math.ceil(Math.random() * 3)
 function choice() {
-    var compchoice =  Math.ceil(Math.random() * 3)
+    
     if(compchoice === 2){
         document.getElementById("comp1").className = "big-paper-circle"
         document.querySelector(".comppaper").style.display = 'block'
@@ -65,3 +71,63 @@ function choice() {
         document.getElementById("comp3").className = "circle-rock";
     }
 }
+
+// function to decide winner
+function game() {
+    document.querySelector(".playagain-btn").style.display = "block";
+    var score = document.getElementById("score");
+    var result = document.querySelector(".win-lose");
+    if(localStorage.getItem("userchoice") === "rock") {
+        if(compchoice === 3){
+            result.textContent = "You Win"
+            score.value++
+            localStorage.setItem("score", score.value)
+        }else if(compchoice === 1){
+            result.textContent = "Draw"
+        }
+        else{
+            result.textContent = "you lose"
+            if(score.value > 0){
+                score.value--
+                localStorage.setItem("score", score.value)
+            }
+        }
+    }
+    if(localStorage.getItem("userchoice") === "paper"){
+        if(compchoice === 1){
+            result.textContent = "you win"
+            score.value++
+            localStorage.setItem("score", score.value)
+        }else if(compchoice === 2){
+            result.textContent = "draw"
+        }else{
+            result.textContent = "you lose";
+            if(score.value > 0){
+                score.value--
+                localStorage.setItem("score", score.value)
+            }
+        }
+    }
+    if (localStorage.getItem("userchoice") === "scissors"){
+        if(compchoice === 1){
+            result.textContent = "you lose"
+            if(score.value > 0){
+                score.value--
+                localStorage.setItem("score", score.value)
+            }
+        }else if(compchoice === 3){
+            result.textContent = "draw"
+        }else{
+            result.textContent = "you win"
+            score.value++
+            localStorage.setItem("score", score.value)
+        }
+    }
+}
+
+// play again btn
+let btn = document.querySelector('.playagain-btn');
+btn.onclick = function() {
+    location.reload()
+}
+score.value = localStorage.getItem("score")
