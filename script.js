@@ -83,7 +83,6 @@ function game() {
             result.textContent = "You Win"
             score.value++
             localStorage.setItem("score", score.value)
-            document.querySelector('.chooserock').classList.add("winshadow");
         }else if(compchoice === 1){
             result.textContent = "Draw"
         }
