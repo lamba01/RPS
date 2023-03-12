@@ -14,7 +14,7 @@ let paper = document.getElementById("paper");
 let scissors = document.getElementById("scissors");
 let rock = document.getElementById("rock");
 
- paper.onclick = function() {
+ paper.onclick = function A() {
      document.querySelector(".game-body").style.display = 'none';
      document.querySelector(".chooserock").style.display = 'none';
      document.querySelector(".choosescissors").style.display = 'none'
@@ -25,7 +25,7 @@ let rock = document.getElementById("rock");
      localStorage.setItem("userchoice", paperr)
      setTimeout(game, 1500)
  }
-rock.onclick = function() {
+rock.onclick = function B() {
     document.querySelector(".game-body").style.display = 'none';
     document.querySelector(".choosepaper").style.display = 'none';
     document.querySelector(".choosescissors").style.display = 'none'
@@ -36,7 +36,7 @@ rock.onclick = function() {
     localStorage.setItem("userchoice", rockk)
     setTimeout(game, 1500)
 }
-scissors.onclick = function() {
+scissors.onclick = function C() {
     document.querySelector(".game-body").style.display = 'none';
     document.querySelector(".choosepaper").style.display = 'none';
     document.querySelector(".chooserock").style.display = 'none';
@@ -75,6 +75,7 @@ function choice() {
 // function to decide winner
 function game() {
     document.querySelector(".playagain-btn").style.display = "block";
+    document.querySelector(".playagain-btn-mobile").style.display = "block";
     var score = document.getElementById("score");
     var result = document.querySelector(".win-lose");
     if(localStorage.getItem("userchoice") === "rock") {
@@ -123,11 +124,13 @@ function game() {
             localStorage.setItem("score", score.value)
         }
     }
+    document.querySelector('.win-lose-mobile').textContent = result.textContent
 }
 
 // play again btn
 let btn = document.querySelector('.playagain-btn');
 btn.onclick = function() {
-    location.reload()
+    document.querySelector(".game-body").style.display = "flex"
 }
 score.value = localStorage.getItem("score")
+
