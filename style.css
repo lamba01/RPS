@@ -215,6 +215,10 @@ aside {
     border-radius: 50%;
     background-color: hsl(237, 49%, 15%);
 }
+.winshadow {
+    box-shadow: 10px 10px 10px 15px hsl(214, 47%, 23%),
+                10px 10px 10px 15px hsl(237, 49%, 15%);
+}
 .results {
     display: inline-flex;
     flex-direction: column;
@@ -359,8 +363,8 @@ aside {
         right: -10px;
     }
     .choosepaper, .comppaper, .chooserock, .comprock, .choosescissors, .compscissors {
-        width: 5rem;
-        height: 5rem;
+        width: 7.5rem;
+        height: 7.5rem;
     }
     .youpicked-mobile, .mobile {
         display: block;
@@ -370,27 +374,60 @@ aside {
     .computerchoice h4, .mychoice h4 {
         display: none;
     }
+    .computerchoice{
+        animation: test-mobile 0.5s forwards ease-in 1s;
+    }
+    .mychoice {
+        animation: test-mobile2 0.5s forwards ease-in 1s;
+    }
+    @keyframes test-mobile {
+        0% {
+            transform: translateX(0px);
+        }
+        50% {
+            transform: translateX(10px);
+        }
+        100% {
+            transform: translateX(20px);
+        }
+    } 
+    @keyframes test-mobile2 {
+        0% {
+            transform: translateX(0px);
+        }
+        50% {
+            transform: translateX(-10px);
+        }
+        100% {
+            transform: translateX(-20px);
+        }
+    } 
     .rules {
-        text-transform: uppercase;
-        position: absolute;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        border: solid 2px hsl(217, 16%, 45%);
-        padding: 10px 40px;
-        border-radius: 10px;
-        cursor: pointer;
+        padding: 10px 30px;
+        right: 35%;
     }
     .overlay {
         background-color: white;
     }
     .icon-close {
         right: 45%;
-        top: 100%;
+        top: 90%;
+    }
+    .rules-container {
+        width: 200px;
+        height: 20rem;
     }
     .rules-container h2 {
-        left: 30%;
+        left: 35%;
     }
     .header {
         width: 80vw;
+    }
+    .bckgrd {
+        width: 5rem;
+        height: 5rem;
+    }
+    .game-body {
+        width: 90%;
     }
 }
