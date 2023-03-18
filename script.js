@@ -106,8 +106,7 @@ document.querySelector('.win-lose-mobile').textContent = result.textContent;
 }
 
 // play again btn
-let btn = document.querySelector('.playagain-btn');
-btn.onclick = function() {
+ function playagain() {
     location.reload()
 }
 
