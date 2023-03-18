@@ -81,7 +81,6 @@ function game() {
     document.querySelector(".playagain-btn").style.display = "block";
     document.querySelector(".playagain-btn-mobile").style.display = "block";
     var score = document.getElementById("score");
-    document.querySelector('.results').style.display = 'flex'
     var result = document.querySelector(".win-lose");
     if(
       (localStorage.getItem("userchoice") === "rock" && compchoice === 3) ||
