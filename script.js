@@ -14,8 +14,8 @@ let paper = document.getElementById("paper");
 let scissors = document.getElementById("scissors");
 let rock = document.getElementById("rock");
 
- paper.onclick = function A() {
-     document.querySelector(".game-body").style.display = 'none';
+ paper.addEventListener("click", ()=> {
+    document.querySelector(".game-body").style.display = 'none';
      document.querySelector(".chooserock").style.display = 'none';
      document.querySelector(".choosescissors").style.display = 'none'
      document.getElementById("mine1").className = "circle-paper";
@@ -24,8 +24,8 @@ let rock = document.getElementById("rock");
      let paperr = "paper"
      localStorage.setItem("userchoice", paperr)
      setTimeout(game, 1500)
- }
-rock.onclick = function B() {
+ }) 
+rock.addEventListener("click", () =>{
     document.querySelector(".game-body").style.display = 'none';
     document.querySelector(".choosepaper").style.display = 'none';
     document.querySelector(".choosescissors").style.display = 'none'
@@ -35,8 +35,11 @@ rock.onclick = function B() {
     let rockk = "rock";
     localStorage.setItem("userchoice", rockk)
     setTimeout(game, 1500)
-}
-scissors.onclick = function C() {
+}) 
+
+   
+
+scissors.addEventListener("click", ()=>{
     document.querySelector(".game-body").style.display = 'none';
     document.querySelector(".choosepaper").style.display = 'none';
     document.querySelector(".chooserock").style.display = 'none';
@@ -46,9 +49,10 @@ scissors.onclick = function C() {
     let sciss = "scissors";
     localStorage.setItem("userchoice", sciss)
     setTimeout(game, 1500)
-}
+}) 
+   
 
-// function for computer choice
+// function for computer selection
 var compchoice =  Math.ceil(Math.random() * 3)
 function choice() {
     
@@ -77,60 +81,36 @@ function game() {
     document.querySelector(".playagain-btn").style.display = "block";
     document.querySelector(".playagain-btn-mobile").style.display = "block";
     var score = document.getElementById("score");
+    document.querySelector('.results').style.display = 'flex'
     var result = document.querySelector(".win-lose");
-    if(localStorage.getItem("userchoice") === "rock") {
-        if(compchoice === 3){
-            result.textContent = "You Win"
-            score.value++
-            localStorage.setItem("score", score.value)
-        }else if(compchoice === 1){
-            result.textContent = "Draw"
-        }
-        else{
-            result.textContent = "you lose"
-            if(score.value > 0){
-                score.value--
-                localStorage.setItem("score", score.value)
-            }
-        }
-    }
-    if(localStorage.getItem("userchoice") === "paper"){
-        if(compchoice === 1){
-            result.textContent = "you win"
-            score.value++
-            localStorage.setItem("score", score.value)
-        }else if(compchoice === 2){
-            result.textContent = "draw"
-        }else{
-            result.textContent = "you lose";
-            if(score.value > 0){
-                score.value--
-                localStorage.setItem("score", score.value)
-            }
-        }
-    }
-    if (localStorage.getItem("userchoice") === "scissors"){
-        if(compchoice === 1){
-            result.textContent = "you lose"
-            if(score.value > 0){
-                score.value--
-                localStorage.setItem("score", score.value)
-            }
-        }else if(compchoice === 3){
-            result.textContent = "draw"
-        }else{
-            result.textContent = "you win"
-            score.value++
-            localStorage.setItem("score", score.value)
-        }
-    }
-    document.querySelector('.win-lose-mobile').textContent = result.textContent
+    if(
+      (localStorage.getItem("userchoice") === "rock" && compchoice === 3) ||
+      (localStorage.getItem("userchoice") === "paper" && compchoice === 1) ||
+      (localStorage.getItem("userchoice") === "scissors" && compchoice === 2)
+    ){
+        result.textContent = "You Win"
+        score.value++
+        localStorage.setItem("score", score.value)
+    }else if(
+        (localStorage.getItem("userchoice") === "rock" && compchoice === 2) ||
+        (localStorage.getItem("userchoice") === "paper" && compchoice === 3) ||
+        (localStorage.getItem("userchoice") === "scissors" && compchoice === 1)
+    ){
+        result.textContent = "you lose"
+        if(score.value > 0){
+        score.value--
+        localStorage.setItem("score", score.value)}
+    }else {
+    result.textContent = "draw"
+}
+document.querySelector('.win-lose-mobile').textContent = result.textContent;
 }
 
 // play again btn
 let btn = document.querySelector('.playagain-btn');
 btn.onclick = function() {
-    document.querySelector(".game-body").style.display = "flex"
+    location.reload()
 }
+
 score.value = localStorage.getItem("score")
 
