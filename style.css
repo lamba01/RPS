@@ -267,7 +267,12 @@ aside {
         transform: translateX(-40px);
     }
 }
-
+.d-none {
+    display: none;
+}
+.d-flex {
+    display: flex;
+}
 @media only screen and (max-width: 1024px) {
     .big-paper-circle, .big-circle-scissors, .big-circle-rock {
         width: 45%;

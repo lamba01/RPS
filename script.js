@@ -15,22 +15,22 @@ let scissors = document.getElementById("scissors");
 let rock = document.getElementById("rock");
 
  paper.addEventListener("click", ()=> {
-    document.querySelector(".game-body").style.display = 'none';
+    document.querySelector(".game-body").classList.add("d-none");
      document.querySelector(".chooserock").style.display = 'none';
      document.querySelector(".choosescissors").style.display = 'none'
      document.getElementById("mine1").className = "circle-paper";
-     document.querySelector(".selection").style.display = 'flex'
+     document.querySelector(".selection").classList.add("d-flex")
      setTimeout(choice, 1000);
      let paperr = "paper"
      localStorage.setItem("userchoice", paperr)
      setTimeout(game, 1500)
  }) 
 rock.addEventListener("click", () =>{
-    document.querySelector(".game-body").style.display = 'none';
+    document.querySelector(".game-body").classList.add("d-none")
     document.querySelector(".choosepaper").style.display = 'none';
     document.querySelector(".choosescissors").style.display = 'none'
     document.getElementById("mine2").className = "circle-rock";
-    document.querySelector(".selection").style.display = 'flex';
+    document.querySelector(".selection").classList.add("d-flex")
     setTimeout(choice, 1000);
     let rockk = "rock";
     localStorage.setItem("userchoice", rockk)
@@ -40,11 +40,11 @@ rock.addEventListener("click", () =>{
    
 
 scissors.addEventListener("click", ()=>{
-    document.querySelector(".game-body").style.display = 'none';
+    document.querySelector(".game-body").classList.add("d-none")
     document.querySelector(".choosepaper").style.display = 'none';
     document.querySelector(".chooserock").style.display = 'none';
     document.getElementById("mine3").className = "circle-rock";
-    document.querySelector(".selection").style.display = 'flex'
+    document.querySelector(".selection").classList.add("d-flex")
     setTimeout(choice, 1000);
     let sciss = "scissors";
     localStorage.setItem("userchoice", sciss)
@@ -107,7 +107,8 @@ document.querySelector('.win-lose-mobile').textContent = result.textContent;
 
 // play again btn
  function playagain() {
-    location.reload()
+    document.querySelector('.selection').classList.remove('d-flex');
+    document.querySelector('.game-body').classList.remove('d-none');
 }
 
 score.value = localStorage.getItem("score")
