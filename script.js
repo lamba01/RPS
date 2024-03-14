@@ -112,7 +112,8 @@ function playagain() {
   document.querySelector(".comprock").style.display = "none";
   document.querySelector(".comppaper").style.display = "none";
   document.querySelector(".compscissors").style.display = "none";
-  document.querySelector(".win-lose").textContent = ""
+  document.querySelector(".win-lose").textContent = "";
+  document.querySelector(".win-lose-mobile").textContent = "";
 
   // Reset localStorage values
   localStorage.removeItem("userchoice");
