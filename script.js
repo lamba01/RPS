@@ -90,10 +90,6 @@ function game() {
     (localStorage.getItem("userchoice") === "scissors" && compchoice === 1)
   ) {
     result.textContent = "you lose";
-    if (score.value > 0) {
-      score.value--;
-      localStorage.setItem("score", score.value);
-    }
   } else {
     result.textContent = "draw";
   }
@@ -101,8 +97,35 @@ function game() {
 }
 
 // play again btn
+// function playagain() {
+//   location.reload();
+
+//  }
+
+// play again btn
 function playagain() {
-  location.reload();
+  // Reset game elements to initial state
+  document.querySelector(".game-body").style.display = "inline-flex";
+  document.querySelector(".chooserock").style.display = "inline-flex";
+  document.querySelector(".choosepaper").style.display = "inline-flex";
+  document.querySelector(".choosescissors").style.display = "inline-flex";
+  document.querySelector(".selection").style.display = "none";
+  document.querySelector(".playagain-btn").style.display = "none";
+  document.querySelector(".playagain-btn-mobile").style.display = "none";
+  document.getElementById("mine1").className = "circle-paper";
+  document.getElementById("mine2").className = "circle-rock";
+  document.getElementById("mine3").className = "circle-rock";
+  document.querySelector(".comprock").style.display = "none";
+  document.querySelector(".comppaper").style.display = "none";
+  document.querySelector(".compscissors").style.display = "none";
+  document.querySelector(".win-lose").textContent = ""
+
+  // Reset localStorage values
+  localStorage.removeItem("userchoice");
+  localStorage.removeItem("score");
+
+  compchoice = Math.ceil(Math.random() * 3);
+  choice()
 }
 
 score.value = localStorage.getItem("score");
