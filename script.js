@@ -97,12 +97,6 @@ function game() {
 }
 
 // play again btn
-// function playagain() {
-//   location.reload();
-
-//  }
-
-// play again btn
 function playagain() {
   // Reset game elements to initial state
   document.querySelector(".game-body").style.display = "inline-flex";
